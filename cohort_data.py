@@ -56,7 +56,7 @@ def students_by_cohort(filename, cohort='All'):
 
     students = []
     
-      
+    
 
     return sorted(students)
 
