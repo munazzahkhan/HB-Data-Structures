@@ -242,8 +242,30 @@ def get_housemates_for(filename, name):
     {'Angelina Johnson', ..., 'Seamus Finnigan'}
     """
 
-    # TODO: replace this with your code
+    housemates = set()
+    house = None
+    cohort = None
 
+    file = open(filename)
+    for line in file:
+      student_info = line.rstrip()
+      student_info = student_info.split("|")
+      student_name = student_info[0] + " " + student_info[1]
+      if student_name == name:
+        house = student_info[2]
+        cohort = student_info[4]
+        break
+
+    file = open(filename)
+    for line in file:
+      student_info = line.rstrip()
+      student_info = student_info.split("|")
+      student_name = student_info[0] + " " + student_info[1]
+      if student_info[2] == house and student_info[4] == cohort and student_name != name:
+        housemates.add(student_name)
+
+    return housemates
+      
 
 ##############################################################################
 # END OF MAIN EXERCISE.  Yay!  You did it! You Rock!
