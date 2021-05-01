@@ -109,9 +109,28 @@ def all_names_by_house(filename):
     ghosts = []
     instructors = []
 
-    # TODO: replace this with your code
+    file = open(filename)
+    for line in file:
+      student_info = line.rstrip()
+      student_info = student_info.split("|")
+      student_name = student_info[0] + " " + student_info[1]
+      if student_info[2]== "Dumbledore's Army":
+        dumbledores_army.append(student_name)
+      elif student_info[2]== "Gryffindor":
+        gryffindor.append(student_name)
+      elif student_info[2]== "Hufflepuff":
+        hufflepuff.append(student_name)
+      elif student_info[2]== "Ravenclaw":
+        ravenclaw.append(student_name)
+      elif student_info[2]== "Slytherin":
+        slytherin.append(student_name)
+      elif student_info[4]== "G":
+        ghosts.append(student_name)
+      elif student_info[4]== "I":
+        instructors.append(student_name)
+      
 
-    return []
+    return [sorted(dumbledores_army), sorted(gryffindor), sorted(hufflepuff), sorted(ravenclaw), sorted(slytherin), sorted(ghosts), sorted(instructors)]
 
 
 def all_data(filename):
