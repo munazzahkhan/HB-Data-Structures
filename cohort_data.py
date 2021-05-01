@@ -17,14 +17,11 @@ def all_houses(filename):
 
     houses = set()
     file = open(filename)
-    for person in file:
-      person_info = person.rstrip()
+    for line in file:
+      person_info = line.rstrip()
       person_info = person_info.split("|")
-      houses.add(person_info[2])
-
-    
-
-    # TODO: replace this with your code
+      if person_info[2] != '':
+        houses.add(person_info[2])
 
     return houses
 
@@ -58,8 +55,8 @@ def students_by_cohort(filename, cohort='All'):
     """
 
     students = []
-
-    # TODO: replace this with your code
+    
+      
 
     return sorted(students)
 
