@@ -187,7 +187,18 @@ def get_cohort_for(filename, name):
       - str: the person's cohort or None
     """
 
-    # TODO: replace this with your code
+    cohort = None
+
+    file = open(filename)
+    for line in file:
+      student_info = line.rstrip()
+      student_info = student_info.split("|")
+      student_name = student_info[0] + " " + student_info[1]
+      if student_name == name:
+        cohort = student_info[4]
+      
+    return cohort
+
 
 
 def find_duped_last_names(filename):
@@ -204,7 +215,19 @@ def find_duped_last_names(filename):
       - set[str]: a set of strings
     """
 
-    # TODO: replace this with your code
+    duped_last_names = ()
+    last_name = []
+
+    file = open(filename)
+    for line in file:
+      student_info = line.rstrip()
+      student_info = student_info.split("|")
+      if student_info[1] in last_name:
+        duped_last_names.add(student_info[1])
+      last_name.append(student_info[1])
+        
+      return duped_last_names
+
 
 
 def get_housemates_for(filename, name):
