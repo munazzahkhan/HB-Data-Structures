@@ -215,7 +215,7 @@ def find_duped_last_names(filename):
       - set[str]: a set of strings
     """
 
-    duped_last_names = ()
+    duped_last_names = set()
     last_name = []
 
     file = open(filename)
@@ -226,7 +226,7 @@ def find_duped_last_names(filename):
         duped_last_names.add(student_info[1])
       last_name.append(student_info[1])
         
-      return duped_last_names
+    return duped_last_names
 
 
 
