@@ -154,7 +154,14 @@ def all_data(filename):
 
     all_data = []
 
-    # TODO: replace this with your code
+    file = open(filename)
+    for line in file:
+      student_info = line.rstrip()
+      student_info = student_info.split("|")
+      first_name, last_name, house, advisor, cohort = student_info
+      student_name = first_name + " " + last_name
+      student_data = (student_name, house, advisor, cohort)
+      all_data.append(student_data)
 
     return all_data
 
